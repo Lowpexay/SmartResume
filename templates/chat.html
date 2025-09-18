@@ -2,17 +2,25 @@
 {% block title %}Chat com Recrutador IA{% endblock %}
 {% block content %}
 <h2>Chat com Recrutador IA</h2>
-<p>Olá, {{ user_name }}! Converse com o recrutador IA e envie seu currículo para análise.</p>
-<form method="post">
+<div class="chatbox">
+    {% for msg in chat_history %}
+        {% if msg.role == 'user' %}
+            <div class="chat-message user">
+                <span class="chat-label">Você:</span>
+                <span class="chat-content">{{ msg.content }}</span>
+            </div>
+        {% elif msg.role == 'assistant' %}
+            <div class="chat-message ai">
+                <span class="chat-label">Recrutador IA:</span>
+                <span class="chat-content">{{ msg.content }}</span>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<form method="post" class="chat-form">
     {% csrf_token %}
-    <textarea name="message" rows="4" cols="50" placeholder="Digite sua mensagem..."></textarea><br>
+    <textarea name="message" rows="2" cols="50" placeholder="Digite sua mensagem..."></textarea><br>
     <button type="submit" class="btn-primary">Enviar</button>
 </form>
-{% if response %}
-    <div class="card">
-        <strong>Resposta do Recrutador IA:</strong>
-        <p>{{ response }}</p>
-    </div>
-{% endif %}
 <a href="{% url 'upload_pdf' %}">Enviar PDF do Currículo</a>
 {% endblock %}
