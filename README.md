@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RedRecruiter
 
 RedRecruiter is a web application that helps users create, edit, and improve their resumes with the assistance of an AI-powered recruiter chatbot.
@@ -57,3 +58,7 @@ RedRecruiter is a web application that helps users create, edit, and improve the
 ## License
 
 This project is for educational purposes.
+=======
+# SmartResume
+RedRecruiter is a web application where users can register, create and edit their resume, and generate a PDF version. 
+>>>>>>> ce5a84152137f72f96e7a9cef3bb0a2a6faaa2ec
