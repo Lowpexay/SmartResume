@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Enviar PDF{% endblock %}
+{% block content %}
+<h2>Enviar PDF do Currículo</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="pdf_file" accept="application/pdf">
+    <button type="submit" class="btn-primary">Enviar</button>
+</form>
+{% endblock %}

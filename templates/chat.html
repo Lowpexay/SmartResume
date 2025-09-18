@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Chat com Recrutador IA{% endblock %}
+{% block content %}
+<h2>Chat com Recrutador IA</h2>
+<p>Olá, {{ user_name }}! Converse com o recrutador IA e envie seu currículo para análise.</p>
+<form method="post">
+    {% csrf_token %}
+    <textarea name="message" rows="4" cols="50" placeholder="Digite sua mensagem..."></textarea><br>
+    <button type="submit" class="btn-primary">Enviar</button>
+</form>
+{% if response %}
+    <div class="card">
+        <strong>Resposta do Recrutador IA:</strong>
+        <p>{{ response }}</p>
+    </div>
+{% endif %}
+<a href="{% url 'upload_pdf' %}">Enviar PDF do Currículo</a>
+{% endblock %}
